@@ -6,4 +6,8 @@ def multi_coefficient(n: int, lt: list):
         raise Exception("List cannot be empty")
     if len(lt) == 1:
         return comb(n, lt[0])
-    return lt
+    total = 1
+    for item in lt:
+        total = total*factorial(item)
+    return int(factorial(n) / total)
+
