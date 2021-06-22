@@ -11,9 +11,30 @@ ending_of_xml = """
 """
 
 
-def print_question(n, a, b, c):
-    expression = f"\left(x^2 + \\frac{{1}}{{y}} + \\frac{{y}}{{x}} \\right)^5"
-    answer = multi_coefficient(n, [a, b, c])
+def getOperation(number):
+    if number > 0:
+        return "+"
+    else:
+        return "-"
+
+
+def convertOper(operation):
+    if operation == "+":
+        return 1
+    else:
+        return -1
+
+
+def formatOne(number):
+    if number == 1:
+        return ""
+    else:
+        return number
+
+
+def print_question(a, b, c, d):
+    expression = f"\left({formatOne(a)}x^2 {getOperation(d)} \\frac{{{b}}}{{y}} + \\frac{{{formatOne(c)}y}}{{x}} \\right)^5"
+    answer = multi_coefficient(5, [2, 1, 2])*(a**2)*b*(c**2)*convertOper(getOperation(d))
     # if answer <= 1 or answer > 1000000:
     #     return ""
     question = f"""
@@ -32,7 +53,7 @@ def print_question(n, a, b, c):
         <hidden>0</hidden>
         <idnumber></idnumber>
         <answer fraction="100" format="moodle_auto_format">
-          <text>30</text>
+          <text>{answer}</text>
           <feedback format="html">
             <text></text>
           </feedback>
@@ -50,27 +71,19 @@ def print_question(n, a, b, c):
 def start():
     with open("questions.xml", "w") as f:
         f.write(beginning_of_xml)
-    for n in range(12, 16):
-        for a in range(0, n + 1):
-            for b in range(0, a + 1):
-                if (a + b) > n:
-                    break
-                c = n - (a + b)
-                with open("questions.xml", "a") as f:
-                    f.write(print_question(n, a, b, c))
+    for a in range(1, 6):
+        for b in range(1, 6):
+            for c in range(1, 6):
+                for d in range(0, 2):
+                    with open("questions.xml", "a") as f:
+                        f.write(print_question(a, b, c, d))
     with open("questions.xml", "a") as f:
         f.write(ending_of_xml)
 
 
 def test():
-    number = 0
-    for n in range(12, 16):
-        for a in range(0, n + 1):
-            for b in range(0, a + 1):
-                if (a + b) > n:
-                    break
-                c = n - (a + b)
-                number = number + 1
-                print(multi_coefficient(n, [a, b, c]))
-    print(number)
+    # d = random.randrange(0,2,1)
+    # a = b = c = 1
+    for a in range(1, 6):
+        print(a)
 
