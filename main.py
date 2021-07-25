@@ -5,8 +5,11 @@
 import bino1
 import mult1
 import mult2
+import appDiff
+import comp1
+import comp2
 from utils import multi_coefficient
-from binomialTheorem import BinomialTheorem
+from binomialTheorem import BinomialTheorem, MultinomialTheorem
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -17,6 +20,8 @@ def print_hi(name):
 if __name__ == '__main__':
     # print(multi_coefficient(5,[2, 1, 2]))
     # print(mult2.test())
-    x = BinomialTheorem("x", 2, "y", -4, 3)
-    print(x.expansion())
+    # x = BinomialTheorem("x", 2, "y", -4, 3)
+    # x = MultinomialTheorem("x", 2, "y", -4, "z", 1, 3)
+    # print(x.get_terms())
+    print(comp2.start())
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
