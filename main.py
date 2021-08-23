@@ -8,8 +8,11 @@ import mult2
 import appDiff
 import comp1
 import comp2
-from utils import multi_coefficient
+from utils import multi_coefficient, factorize
 from binomialTheorem import BinomialTheorem, MultinomialTheorem
+from inte import question
+import doperator
+
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -23,5 +26,8 @@ if __name__ == '__main__':
     # x = BinomialTheorem("x", 2, "y", -4, 3)
     # x = MultinomialTheorem("x", 2, "y", -4, "z", 1, 3)
     # print(x.get_terms())
-    print(comp2.start())
+    # print(comp2.start())
+    # print(question)
+    print(doperator.start())
+
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
